@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ft_package"
+version = "0.0.1"
+authors = [
+  { name="eunrlee", email="eunrlee@42.fr" },
+]
+license = {text="MIT"}
+description = "A sample example package"
+classifiers = []
+entry-points = {}
