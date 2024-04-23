@@ -1,4 +1,5 @@
-from sys import argv, stdin;
+from sys import argv, stdin
+
 
 def building(s: str):
     punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
@@ -8,6 +9,7 @@ def building(s: str):
     print(f"{sum(1 for c in s if c in punctuation)} punctuation marks")
     print(f"{sum(1 for c in s if c.isspace())} spaces")
     print(f"{sum(1 for c in s if c.isdigit())} digits")
+
 
 if __name__ == '__main__':
     try:

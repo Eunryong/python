@@ -8,7 +8,9 @@ month = {1: "January", 2: "February", 3: "March", 4: "April", 5: "May",
 date = datetime(1970, 1, 1)
 now = datetime.now()
 value = round(now.timestamp() - date.timestamp(), 4)
-print("Seconds since January 1, 1970:", format(value, ','), "or", "%.2e"%value, "in scientific notation")
+prefix = "Seconds since January 1, 1970:"
+end = "in scientific notation"
+print(prefix, format(value, ','), "or", "%.2e" % value, end)
 print(strftime("%b %d %Y", gmtime()))
 
 

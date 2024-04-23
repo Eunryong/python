@@ -1,8 +1,8 @@
 
 ft_list = ["Hello", "tata!"]
-ft_tuple =  ("Hello", "toto!")
+ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
-ft_dict = {"Hello" : "titi!"}
+ft_dict = {"Hello": "titi!"}
 
 ft_list.pop()
 ft_list.append("World!")
