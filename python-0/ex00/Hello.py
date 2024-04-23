@@ -13,9 +13,8 @@ ft_tuple.append("Korea!")
 ft_tuple = tuple(ft_tuple)
 
 ft_set.remove("tutu!")
-ft_set.discard("tutu!")
-ft_set = list(ft_set)
-ft_set.append("Seoul!")
+# ft_set.discard("tutu!")
+ft_set.add("Seoul!")
 
 ft_dict["Hello"] = "42Seoul!"
 
