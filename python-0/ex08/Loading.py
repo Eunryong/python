@@ -6,3 +6,6 @@ def ft_tqdm(lst: range) -> None:
         bar = percetage * "█" + (100 - percetage) * " "
         yield i
         print(f"{prefix}{percetage}%|{bar}|{i + 1}/{lst.stop}", end="\r")
+
+if __name__ == "__main__":
+    print("hi")

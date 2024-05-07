@@ -1,27 +1,32 @@
 from load_image import ft_load
-from numpy import array, resize
+from numpy import array, asarray, uint8, dot
 from PIL import Image
+from matplotlib.pyplot import imshow, show
 
-def zoom(image: array) -> array:
+
+def zoom(image: array, x, y) -> array:
     '''hi
     '''
     try:
-        pil_image= Image.fromarray(image)
+        pil_image = Image.fromarray(image)
         w, h = pil_image.size
-        assert w >= 400 and h >= 400, "hi"
-        # (left, upper, right, lower) = (w * 1 / 4, h * 1 / 4, w * 3 / 4, h * 3 / 4)
-        (left, upper, right, lower) = (w / 2 - 200, h / 2 - 200, w / 2 + 200, h / 2 + 200)
+        assert w >= x and h >= y, "hi"
+        (left, upper, right, lower) = ((w - x) / 2, (h - y) / 2,
+                                       (w + x) / 2, (h + y) / 2)
         zoom_image = pil_image.crop((left, upper, right, lower))
-        # zoom_image = pil_image.resize((400, 400), 1)
-        zoom_array = array(zoom_image)
-        zoom_image.show()
+        # zoom_image.save("zoom_image.jpeg", "jpeg")
+        zoom_array = asarray(zoom_image)
+        zoom_array = dot(zoom_array[..., :3], [0.2989,
+                                               0.5870, 0.1140]).astype(uint8)
         print("New shape after slicing:", zoom_array.shape)
+        imshow(zoom_array, cmap="gray")
+        show()
         return zoom_array
     except AssertionError as e:
         print("Image error:", e)
 
+
 if __name__ == "__main__":
     image = ft_load("animal.jpeg")
     print(image)
-    print(zoom(image))
-    
+    print(zoom(image, 400, 400))

@@ -3,9 +3,10 @@ from numpy import array, dot, uint8
 from PIL import Image
 from matplotlib.pyplot import show, imshow
 
+
 def rotate(image: array) -> array:
     if len(image.shape) == 3 and image.shape[2] == 3:
-        image = dot(image[...,:3], [0.2989, 0.5870, 0.1140]).astype(uint8)
+        image = dot(image[..., :3], [0.2989, 0.5870, 0.1140]).astype(uint8)
     (h, w) = image.shape
     image_list = image.tolist()
     rotated_image = [[0 for x in range(h)] for y in range(w)]
@@ -18,6 +19,7 @@ def rotate(image: array) -> array:
     imshow(rotated, cmap="gray")
     show()
     return transposed
+
 
 if __name__ == "__main__":
     image = ft_load("animal.jpeg")
