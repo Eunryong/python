@@ -1,26 +1,26 @@
 from load_image import ft_load
-from numpy import array, asarray, uint8, dot
-from PIL import Image
-from matplotlib.pyplot import imshow, show
+import numpy as np
+import PIL
+import matplotlib.pyplot as plt
 
 
-def zoom(image: array, x, y) -> array:
+def zoom(image: np.array, x, y) -> np.array:
     '''hi
     '''
     try:
-        pil_image = Image.fromarray(image)
+        pil_image = PIL.Image.fromarray(image)
         w, h = pil_image.size
         assert w >= x and h >= y, "hi"
         (left, upper, right, lower) = ((w - x) / 2, (h - y) / 2,
                                        (w + x) / 2, (h + y) / 2)
         zoom_image = pil_image.crop((left, upper, right, lower))
         # zoom_image.save("zoom_image.jpeg", "jpeg")
-        zoom_array = asarray(zoom_image)
-        zoom_array = dot(zoom_array[..., :3], [0.2989,
-                                               0.5870, 0.1140]).astype(uint8)
+        zoom_array = np.asarray(zoom_image)
+        zoom_array = np.dot(zoom_array[..., :3], [0.2989,
+                                               0.5870, 0.1140]).astype(np.uint8)
         print("New shape after slicing:", zoom_array.shape)
-        imshow(zoom_array, cmap="gray")
-        show()
+        plt.imshow(zoom_array, cmap="gray")
+        plt.show()
         return zoom_array
     except AssertionError as e:
         print("Image error:", e)

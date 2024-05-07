@@ -1,4 +1,4 @@
-from sys import argv, stdin
+import sys
 
 
 def building(s: str):
@@ -11,16 +11,20 @@ def building(s: str):
     print(f"{sum(1 for c in s if c.isdigit())} digits")
 
 
-if __name__ == '__main__':
+def main():
     try:
-        assert len(argv) <= 2, "more than one argument is provided"
-        if (len(argv) == 1):
+        assert len(sys.argv) <= 2, "more than one argument is provided"
+        if (len(sys.argv) == 1):
             # s = input("What is the text to count?\n")
             print("What is the text to count?")
-            s = stdin.readline()
+            s = sys.stdin.readline()
         else:
-            s = argv[1]
+            s = sys.argv[1]
         building(s)
     except AssertionError as e:
         print("AssertionError:", e)
         exit(1)
+
+
+if __name__ == '__main__':
+    main()

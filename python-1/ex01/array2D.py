@@ -1,4 +1,4 @@
-from numpy import array
+import numpy as np
 
 
 def slice_me(family: list, start: int, end: int) -> list:
@@ -25,7 +25,7 @@ Example:
         for x in family:
             assert type(x) is list, 'Invalid parameters'
             assert len(x) == size, 'Invalid parameters'
-        ret = array(family)
+        ret = np.array(family)
         print(f"My shape is : {ret.shape}")
         ret = ret[start:end]
         print(f"My new shape is : {ret.shape}")

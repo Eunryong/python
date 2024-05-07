@@ -1,4 +1,4 @@
-from numpy import array, int64, float64
+import numpy as np
 
 
 def give_bmi(height: list[int | float],
@@ -10,10 +10,10 @@ height: list[int | float], weight: list[int | float]
 return list[int | float]
     '''
     try:
-        h = array(height)
-        w = array(weight)
-        assert h.dtype == (float64 or int64), 'sad'
-        assert w.dtype == (float64 or int64), 'sad'
+        h = np.array(height)
+        w = np.array(weight)
+        assert h.dtype == (np.float64 or np.int64), 'sad'
+        assert w.dtype == (np.float64 or np.int64), 'sad'
         assert h.shape == w.shape, 'sad'
         return (w / h * h).tolist()
     except AssertionError as e:

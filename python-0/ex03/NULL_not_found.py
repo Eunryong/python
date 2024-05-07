@@ -1,7 +1,6 @@
 
 def NULL_not_found(value):
     valueType = type(value)
-    # if (isinstance(value, type(None))):
     if (value is None):
         print("Noting:", value, valueType)
     elif (isinstance(value, float) and value != value):

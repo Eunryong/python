@@ -1,12 +1,12 @@
-from numpy import array, copy
-from matplotlib.pyplot import imshow, show
+import numpy as np
+import matplotlib.pyplot as plt
 from load_image import ft_load
 
 
-def ft_invert(array) -> array:
+def ft_invert(array) -> np.array:
     '''Inverts the color of the image received.'''
     (x, y) = array.shape[:2]
-    invert = copy(array)
+    invert = np.copy(array)
     for i in range(x):
         for j in range(y):
             r, g, b = invert[i, j]
@@ -14,15 +14,15 @@ def ft_invert(array) -> array:
             g = 255 - g
             b = 255 - b
             invert[i, j] = (r, g, b)
-    imshow(invert)
-    show()
+    plt.imshow(invert)
+    plt.show()
     return invert
 
 
-def ft_red(array) -> array:
+def ft_red(array) -> np.array:
     ''''''
     (x, y) = array.shape[:2]
-    red = copy(array)
+    red = np.copy(array)
     for i in range(x):
         for j in range(y):
             r, g, b = red[i, j]
@@ -30,50 +30,50 @@ def ft_red(array) -> array:
             g = 0
             b = 0
             red[i, j] = (r, g, b)
-    imshow(red)
-    show()
+    plt.imshow(red)
+    plt.show()
     return red
 
 
-def ft_green(array) -> array:
+def ft_green(array) -> np.array:
     (x, y) = array.shape[:2]
-    green = copy(array)
+    green = np.copy(array)
     for i in range(x):
         for j in range(y):
             r, g, b = green[i, j]
             r -= r
             b -= b
             green[i, j] = (r, g, b)
-    imshow(green)
-    show()
+    plt.imshow(green)
+    plt.show()
     return green
 
 
-def ft_blue(array) -> array:
+def ft_blue(array) -> np.array:
     (x, y) = array.shape[:2]
-    blue = copy(array)
+    blue = np.copy(array)
     for i in range(x):
         for j in range(y):
             r, g, b = blue[i, j]
             r = 0
             g = 0
             blue[i, j] = (r, g, b)
-    imshow(blue)
-    show()
+    plt.imshow(blue)
+    plt.show()
     return blue
 
 
-def ft_grey(array) -> array:
+def ft_grey(array) -> np.array:
     (x, y) = array.shape[:2]
-    grey = copy(array)
+    grey = np.copy(array)
     for i in range(x):
         for j in range(y):
             r = sum(grey[i, j]) / 3
             g = r
             b = r
             grey[i, j] = (r, g, b)
-    imshow(grey)
-    show()
+    plt.imshow(grey)
+    plt.show()
     return grey
 
 

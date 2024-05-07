@@ -1,4 +1,4 @@
-from sys import argv
+import sys
 
 
 def printMorse(s):
@@ -24,11 +24,14 @@ def stringCheck(s: str):
             return False
     return True
 
-
-if __name__ == '__main__':
+def main():
     try:
-        assert len(argv) == 2 and stringCheck(argv[1]), "the argument are bad"
-        printMorse(argv[1])
+        assert len(sys.argv) == 2 and stringCheck(sys.argv[1]), "the argument are bad"
+        printMorse(sys.argv[1])
     except AssertionError as e:
         print("AssertionError:", e)
         exit(1)
+
+if __name__ == '__main__':
+    main()
+
