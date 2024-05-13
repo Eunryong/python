@@ -1,5 +1,5 @@
 
-def all_thing_is_obj(value):
+def all_thing_is_obj(value) -> int:
     valueType = type(value)
     if (valueType == list):
         print("List :", valueType)

@@ -7,3 +7,11 @@ is true. If function is None, return the items that are true.'''
     if fun is None:
         return [i for i in iterable if i]
     return [i for i in iterable if fun(i)]
+
+
+def main():
+    print(ft_filter.__doc__ == filter.__doc__)
+
+
+if __name__ == "__main__":
+    main()

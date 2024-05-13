@@ -24,14 +24,16 @@ def stringCheck(s: str):
             return False
     return True
 
+
 def main():
     try:
-        assert len(sys.argv) == 2 and stringCheck(sys.argv[1]), "the argument are bad"
+        assert len(sys.argv) == 2, "the argument are bad"
+        assert stringCheck(sys.argv[1]), "the argument are bad"
         printMorse(sys.argv[1])
     except AssertionError as e:
         print("AssertionError:", e)
         exit(1)
 
+
 if __name__ == '__main__':
     main()
-

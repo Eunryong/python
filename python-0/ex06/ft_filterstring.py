@@ -4,6 +4,7 @@ import sys
 # def lenCheck(string):
 #     return len(string) > int(argv[2])
 
+
 def main():
     try:
         punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
@@ -13,7 +14,6 @@ def main():
         assert sys.argv[2].isdigit(), error_message
         string = sys.argv[1].split(" ")
         print(ft_filter(lambda x: len(x) > int(sys.argv[2]), string))
-        print(ft_filter.__doc__)
     except AssertionError as e:
         print("AssertionError:", e)
         exit(1)
